@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Post, Put, Delete } from "@nestjs/common";
 import { CommentService } from "./comments.service";
 
 @Controller('comment')
@@ -7,6 +7,15 @@ export class CommentController {
 
     @Get()
     getComment(){
-        return this.commentService.getComment()
+        return this.commentService.getComment();
     }
+
+    @Post()
+    addComment() {}
+  
+    @Put()
+    updateComment() {}
+  
+    @Delete()
+    deleteComment() {}
 }
