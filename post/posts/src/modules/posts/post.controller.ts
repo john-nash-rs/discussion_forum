@@ -6,6 +6,11 @@ export class PostController {
   constructor(private readonly postService: PostService) {}
 
   @Get()
+  getAllPosts() {
+    // return this.postService.getAllPost();
+  }
+
+  @Get()
   getPost() {
     return this.postService.getPost();
   }
