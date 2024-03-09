@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "com.skillcaptain.app.grpc.comment.model";
+option java_outer_classname = "CommentProto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service CommentService {
+  rpc CreateComment (CreateCommentRequest) returns (Comment) {}
+  rpc GetComment (GetCommentRequest) returns (Comment) {}
+  rpc GetAllComment (GetAllCommentRequest) returns (Comments) {}
+}
+
+message CreateCommentRequest {
+  int64 user_id = 1;
+  string post_id = 2;
+  string content = 3;
+  bool notify_author = 4;
+}
+
+message GetCommentRequest {
+  string comment_id = 1;
+}
+
+message GetAllCommentRequest {
+  string comment_id = 1;
+}
+
+message Comments {
+  repeated Comment comment = 1;
+}
+
+message Comment {
+  string id = 1;
+  string post_id = 2;
+  string content = 3;
+  string author_id = 4;
+}

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "com.skillcaptain.app.grpc.dto.model";
+option java_outer_classname = "DtoProto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+
+message UserDto{
+  int32 user_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+}
+
+message PostDto{
+  string id = 1;
+  string forum_id = 2;
+  string title = 3;
+  string content = 4;
+  string author_id = 5;
+}
+
+message CommentDto{
+  int64 user_id = 1;
+  string post_id = 2;
+  string content = 3;
+  bool notify_author = 4;
+}
+
+message NotificationDto{
+  string title = 1;
+  string content = 2;
+  string author = 3;
+}
