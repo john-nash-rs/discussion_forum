@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "com.skillcaptain.app.grpc.user.model";
+option java_outer_classname = "UserProto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (User) {}
+  rpc GetUser(google.protobuf.Int64Value) returns (User) {}
+  rpc GetAllNotifications(GetAllNotificationsRequest) returns (Notifications) {}
+}
+
+message CreateUserRequest {
+  string first_name = 1;
+  string last_name = 2;
+  string email = 3;
+}
+
+message GetAllNotificationsRequest{
+  int32 user_id = 1;
+}
+
+message Notifications{
+  repeated Notification notification = 1;
+}
+
+message Notification{
+  string title = 1;
+  string content = 2;
+  string author = 3;
+}
+
+message User {
+  int32 user_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+}
